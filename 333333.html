@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Delivery Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    #controls {
+      padding: 10px;
+      text-align: center;
+      background: #f0f0f0;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    #map {
+      height: 85vh;
+    }
+    #status {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="controls">
+  <button onclick="shareToWhatsApp()">📤 Send Live Location Link via WhatsApp</button>
+  <p id="status">Waiting for location updates...</p>
+</div>
+
+<div id="map"></div>
+
+<script>
+  // ✅ Firebase Config
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3hShBlWYIFkhlpxezZi7ZsNoWUFoWQF4",
+    authDomain: "delivery-tracker-a5493.firebaseapp.com",
+    projectId: "delivery-tracker-a5493",
+    storageBucket: "delivery-tracker-a5493.firebasestorage.app",
+    messagingSenderId: "168628360237",
+    appId: "1:168628360237:web:b1657657eb8a19fe6054a4",
+    measurementId: "G-YV01JCQ9WE"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  const statusText = document.getElementById("status");
+
+  // 🗺️ Leaflet Map Setup
+  const map = L.map('map').setView([0, 0], 2);
+  let marker = null;
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+  // 👁️ Admin Live Tracking
+  db.ref("deliveryman").on("value", snapshot => {
+    const data = snapshot.val();
+    if (data) {
+      const latlng = [data.lat, data.lng];
+      if (!marker) {
+        marker = L.marker(latlng).addTo(map).bindPopup("📍 Delivery Man").openPopup();
+      } else {
+        marker.setLatLng(latlng);
+      }
+      map.setView(latlng, 16);
+      statusText.textContent = `📡 Delivery location: ${latlng[0].toFixed(5)}, ${latlng[1].toFixed(5)}`;
+    }
+  });
+
+  // 🔗 Generate and open WhatsApp link
+  function shareToWhatsApp() {
+    const url = `${location.origin}${location.pathname}?share=1`;
+    const whatsappURL = `https://wa.me/?text=${encodeURIComponent("Click this link to share your live location:\n" + url)}`;
+    window.open(whatsappURL, '_blank');
+  }
+
+  // 🚚 Auto location sharing if ?share=1 is in URL
+  const params = new URLSearchParams(window.location.search);
+  if (params.has("share")) {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.watchPosition(position => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        db.ref("deliveryman").set({ lat, lng });
+        statusText.textContent = `✅ Sharing: ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+      }, error => {
+        statusText.textContent = "❌ Location error: " + error.message;
+      }, { enableHighAccuracy: true });
+    } else {
+      statusText.textContent = "Geolocation not supported.";
+    }
+  }
+</script>
+
+</body>
+</html>
