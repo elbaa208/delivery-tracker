@@ -3,7 +3,7 @@
     "id": "usr_001",
     "name": "مدير المتجر",
     "email": "admin@albaakili.ma",
-    "password": "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhy0",
+    "password": "$2a$10$LO01olqaNmnjawswJ4OsieUkaXovNH7X3QllBFl3cwTuJEOPiDD4e",
     "role": "admin",
     "createdAt": "2024-01-01T00:00:00.000Z"
   }

@@ -4,7 +4,7 @@ import { FaLock, FaUser, FaStar } from 'react-icons/fa'
 import { useAuth } from '../context/AuthContext'
 
 export default function AdminLogin() {
-  const [form, setForm] = useState({ username: '', password: '' })
+  const [form, setForm] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const { user, login } = useAuth()
@@ -18,7 +18,7 @@ export default function AdminLogin() {
     e.preventDefault()
     setError('')
     setLoading(true)
-    const result = await login(form.username, form.password)
+    const result = await login(form.email, form.password)
     setLoading(false)
     if (result.success) {
       navigate('/admin', { replace: true })
@@ -50,15 +50,16 @@ export default function AdminLogin() {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label">اسم المستخدم</label>
+            <label className="form-label">البريد الإلكتروني</label>
             <div className="input-icon-wrap">
               <FaUser className="input-icon" />
               <input
                 className="form-control"
+                type="email"
                 style={{ paddingRight: 36 }}
-                value={form.username}
-                onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
-                placeholder="admin"
+                value={form.email}
+                onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                placeholder="admin@albaakili.ma"
                 required
               />
             </div>
