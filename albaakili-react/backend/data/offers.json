@@ -1,0 +1,4 @@
+[
+  {"id":"off_001","title":"تخفيضات الصيف","description":"خصم 20% على جميع الحجابات طوال شهر يوليو","discount":"20%","image":"","startDate":"2024-07-01","endDate":"2024-07-31","active":true,"createdAt":"2024-06-01T00:00:00.000Z"},
+  {"id":"off_002","title":"مجموعة رمضان الخاصة","description":"تشكيلة حصرية بمناسبة رمضان المبارك","discount":"15%","image":"","startDate":"2024-03-01","endDate":"2024-04-10","active":false,"createdAt":"2024-02-01T00:00:00.000Z"}
+]
