@@ -117,10 +117,10 @@ app.get('/api/auth/check', (req, res) => {
 // ─── Products API ─────────────────────────────────────────────────────────────
 app.get('/api/products', (req, res) => {
   let products = readJSON('products.json');
-  const { category, featured, search, minPrice, maxPrice, color, available } = req.query;
+  const { category, featured, search, minPrice, maxPrice, color, available, skipAvailableFilter } = req.query;
   if (category) products = products.filter(p => p.category === category);
   if (featured === 'true') products = products.filter(p => p.featured);
-  if (available !== 'false') products = products.filter(p => p.available !== false);
+  if (!skipAvailableFilter && available !== 'false') products = products.filter(p => p.available !== false);
   if (search) {
     const q = search.toLowerCase();
     products = products.filter(p => p.name.toLowerCase().includes(q) || p.shortDescription.toLowerCase().includes(q));

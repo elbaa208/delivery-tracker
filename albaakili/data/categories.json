@@ -1,7 +1,37 @@
 [
-  { "id": "1", "name": "حجاب شيفون", "slug": "chiffon", "icon": "✨", "image": "" },
-  { "id": "2", "name": "حجاب كريب", "slug": "crepe", "icon": "🌸", "image": "" },
-  { "id": "3", "name": "حجاب حرير", "slug": "silk", "icon": "💎", "image": "" },
-  { "id": "4", "name": "عباءات", "slug": "abayas", "icon": "👘", "image": "" },
-  { "id": "5", "name": "طرح فاخرة", "slug": "premium", "icon": "⭐", "image": "" }
+  {
+    "id": "1",
+    "name": "حجاب شيفون",
+    "slug": "chiffon",
+    "icon": "✨",
+    "image": ""
+  },
+  {
+    "id": "2",
+    "name": "حجاب كريب",
+    "slug": "crepe",
+    "icon": "🌸",
+    "image": ""
+  },
+  {
+    "id": "3",
+    "name": "حجاب حرير",
+    "slug": "silk",
+    "icon": "💎",
+    "image": ""
+  },
+  {
+    "id": "4",
+    "name": "عباءات",
+    "slug": "abayas",
+    "icon": "👘",
+    "image": ""
+  },
+  {
+    "id": "5",
+    "name": "طرح فاخرة",
+    "slug": "premium",
+    "icon": "⭐",
+    "image": ""
+  }
 ]

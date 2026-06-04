@@ -4,7 +4,7 @@
 
 // ─── Auth ─────────────────────────────────
 async function checkAuth() {
-  const r = await fetch('/api/auth/check');
+  const r = await fetch('/api/auth/check', { credentials: 'same-origin' });
   const { loggedIn } = await r.json();
   return loggedIn;
 }
@@ -13,13 +13,14 @@ async function login(email, password) {
   const r = await fetch('/api/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
+    credentials: 'same-origin',
     body: JSON.stringify({ email, password })
   });
   return r.ok;
 }
 
 async function logout() {
-  await fetch('/api/auth/logout', { method: 'POST' });
+  await fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' });
   showLogin();
 }
 
@@ -31,7 +32,11 @@ let allCategories = [];
 
 // ─── API helpers ──────────────────────────
 async function api(method, url, body) {
-  const opts = { method, headers: { 'Content-Type': 'application/json' } };
+  const opts = {
+    method,
+    credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json' }
+  };
   if (body) opts.body = JSON.stringify(body);
   const r = await fetch(url, opts);
   const data = await r.json();
@@ -43,7 +48,11 @@ async function api(method, url, body) {
 async function uploadImage(file) {
   const fd = new FormData();
   fd.append('image', file);
-  const r = await fetch('/api/upload', { method: 'POST', body: fd });
+  const r = await fetch('/api/upload', {
+    method: 'POST',
+    credentials: 'same-origin',
+    body: fd
+  });
   const data = await r.json();
   if (!r.ok) throw new Error(data.error || 'فشل رفع الصورة');
   return data.url;
@@ -194,7 +203,10 @@ async function loadDashboard() {
 
 // ─── Products ─────────────────────────────
 async function loadProducts() {
-  const [products, cats] = await Promise.all([api('GET', '/api/products?available=all'), api('GET', '/api/categories')]);
+  let products, cats;
+  try {
+    [products, cats] = await Promise.all([api('GET', '/api/products?skipAvailableFilter=1'), api('GET', '/api/categories')]);
+  } catch (e) { showToast('خطأ في تحميل المنتجات: ' + e.message, 'error'); return; }
   allCategories = cats;
 
   const tbody = document.getElementById('productsTable');
@@ -293,7 +305,9 @@ window.saveProduct = saveProduct;
 
 // ─── Categories ───────────────────────────
 async function loadCategories() {
-  const cats = await api('GET', '/api/categories');
+  let cats;
+  try { cats = await api('GET', '/api/categories'); }
+  catch (e) { showToast('خطأ في تحميل التصنيفات: ' + e.message, 'error'); return; }
   const tbody = document.getElementById('categoriesTable');
   if (!tbody) return;
   tbody.innerHTML = cats.length ? cats.map(c => `
@@ -345,7 +359,9 @@ window.saveCategory = saveCategory;
 
 // ─── Offers ───────────────────────────────
 async function loadOffers() {
-  const offers = await api('GET', '/api/offers');
+  let offers;
+  try { offers = await api('GET', '/api/offers'); }
+  catch (e) { showToast('خطأ في تحميل العروض: ' + e.message, 'error'); return; }
   const tbody = document.getElementById('offersTable');
   if (!tbody) return;
   tbody.innerHTML = offers.length ? offers.map(o => `

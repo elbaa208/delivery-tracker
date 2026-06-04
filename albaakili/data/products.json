@@ -6,10 +6,20 @@
     "category": "chiffon",
     "shortDescription": "حجاب شيفون فاخر مزين بتطريز الورود الناعم",
     "description": "حجاب شيفون فاخر من أجود أنواع القماش، مزين بتطريز يدوي دقيق على شكل ورود، يمنحكِ إطلالة أنيقة ومحتشمة في آنٍ واحد. مناسب للمناسبات والسهرات.",
-    "colors": ["أبيض عاجي", "بيج ذهبي", "وردي ناعم", "أزرق سماوي"],
-    "sizes": ["90×180 سم", "100×200 سم"],
+    "colors": [
+      "أبيض عاجي",
+      "بيج ذهبي",
+      "وردي ناعم",
+      "أزرق سماوي"
+    ],
+    "sizes": [
+      "90×180 سم",
+      "100×200 سم"
+    ],
     "material": "شيفون مطرز",
-    "images": ["/assets/images/product-placeholder.jpg"],
+    "images": [
+      "/assets/images/product-placeholder.jpg"
+    ],
     "featured": true,
     "available": true,
     "createdAt": "2024-01-01"
@@ -21,10 +31,20 @@
     "category": "crepe",
     "shortDescription": "طرحة كريب بطابع مغربي أصيل",
     "description": "طرحة كريب عالية الجودة بتصميم مغربي أصيل، قماش خفيف ومريح يناسب الاستخدام اليومي والمناسبات الخاصة.",
-    "colors": ["أسود", "بني كاكاو", "رمادي", "كحلي"],
-    "sizes": ["70×170 سم", "80×180 سم"],
+    "colors": [
+      "أسود",
+      "بني كاكاو",
+      "رمادي",
+      "كحلي"
+    ],
+    "sizes": [
+      "70×170 سم",
+      "80×180 سم"
+    ],
     "material": "كريب عالي الجودة",
-    "images": ["/assets/images/product-placeholder.jpg"],
+    "images": [
+      "/assets/images/product-placeholder.jpg"
+    ],
     "featured": true,
     "available": true,
     "createdAt": "2024-01-02"
@@ -36,10 +56,19 @@
     "category": "silk",
     "shortDescription": "حجاب حرير طبيعي 100% فاخر",
     "description": "حجاب من الحرير الطبيعي 100%، ملمس ناعم وبريق أنيق يعكس الفخامة والرقي. اختيار المرأة الواثقة من نفسها.",
-    "colors": ["ذهبي", "أحمر عميق", "أخضر زمردي", "بنفسجي"],
-    "sizes": ["90×190 سم"],
+    "colors": [
+      "ذهبي",
+      "أحمر عميق",
+      "أخضر زمردي",
+      "بنفسجي"
+    ],
+    "sizes": [
+      "90×190 سم"
+    ],
     "material": "حرير طبيعي 100%",
-    "images": ["/assets/images/product-placeholder.jpg"],
+    "images": [
+      "/assets/images/product-placeholder.jpg"
+    ],
     "featured": true,
     "available": true,
     "createdAt": "2024-01-03"
@@ -51,10 +80,22 @@
     "category": "abayas",
     "shortDescription": "عباءة خليجية بتصميم عصري فاخر",
     "description": "عباءة خليجية مصممة بأحدث صيحات الموضة المحتشمة، قماش عالي الجودة بقصة أنيقة تناسب جميع المناسبات.",
-    "colors": ["أسود كلاسيكي", "رمادي بارد", "بيج فاخر"],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "colors": [
+      "أسود كلاسيكي",
+      "رمادي بارد",
+      "بيج فاخر"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
     "material": "نسيج فاخر مستورد",
-    "images": ["/assets/images/product-placeholder.jpg"],
+    "images": [
+      "/assets/images/product-placeholder.jpg"
+    ],
     "featured": false,
     "available": true,
     "createdAt": "2024-01-04"
@@ -66,10 +107,18 @@
     "category": "premium",
     "shortDescription": "طرحة بريميوم من قماش لورينزو الإيطالي",
     "description": "طرحة فاخرة من قماش لورينزو الإيطالي الأصيل، تتميز بثباتها على الرأس وخفتها الاستثنائية، مثالية للمناسبات الراقية.",
-    "colors": ["أوف وايت", "رمادي فضي", "بيج روز"],
-    "sizes": ["75×175 سم"],
+    "colors": [
+      "أوف وايت",
+      "رمادي فضي",
+      "بيج روز"
+    ],
+    "sizes": [
+      "75×175 سم"
+    ],
     "material": "لورينزو إيطالي",
-    "images": ["/assets/images/product-placeholder.jpg"],
+    "images": [
+      "/assets/images/product-placeholder.jpg"
+    ],
     "featured": true,
     "available": true,
     "createdAt": "2024-01-05"
@@ -81,10 +130,21 @@
     "category": "crepe",
     "shortDescription": "حجاب جيرسي مخملي مريح للاستخدام اليومي",
     "description": "حجاب جيرسي بملمس مخملي ناعم، مرن ومريح للاستخدام اليومي، لا يحتاج دبابيس ويثبت بشكل رائع.",
-    "colors": ["أسود", "أبيض", "رمادي", "بني", "كحلي", "زيتي"],
-    "sizes": ["قياس موحد"],
+    "colors": [
+      "أسود",
+      "أبيض",
+      "رمادي",
+      "بني",
+      "كحلي",
+      "زيتي"
+    ],
+    "sizes": [
+      "قياس موحد"
+    ],
     "material": "جيرسي مخملي",
-    "images": ["/assets/images/product-placeholder.jpg"],
+    "images": [
+      "/assets/images/product-placeholder.jpg"
+    ],
     "featured": false,
     "available": true,
     "createdAt": "2024-01-06"
