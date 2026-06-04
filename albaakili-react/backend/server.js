@@ -30,7 +30,15 @@ app.use(helmet({
 
 // ── CORS ──────────────────────────────────────────────────
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
+  origin: (origin, callback) => {
+    const allowed = [
+      'http://localhost:5173', 'http://localhost:3000',
+      'http://127.0.0.1:5173', 'http://localhost:5000',
+      'http://127.0.0.1:5000'
+    ]
+    if (!origin || allowed.includes(origin)) return callback(null, true)
+    callback(null, true) // allow all in development
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
