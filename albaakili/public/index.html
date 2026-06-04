@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>البعقيلي للحجاب — أناقة تليق بكِ</title>
+  <meta name="description" content="متجر البعقيلي للحجاب - أرقى تشكيلات الحجاب والعباءات الفاخرة">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ══ Header ══════════════════════════════════════════════ -->
+<header id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="/assets/logo.png" alt="البعقيلي للحجاب" onerror="this.style.display='none'">
+      <div class="logo-text">
+        <span class="logo-text-main">البعقيلي للحجاب</span>
+        <span class="logo-text-sub">Luxury Modest Fashion</span>
+      </div>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="/" class="active">الرئيسية</a></li>
+        <li><a href="/products">المنتجات</a></li>
+        <li><a href="/offers">العروض</a></li>
+        <li><a href="/about">من نحن</a></li>
+        <li><a href="/contact">تواصلي معنا</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button id="themeToggle" class="icon-btn" title="تغيير المظهر"><i class="fas fa-moon"></i></button>
+      <a href="#" id="whatsappFloat-header" class="btn btn-whatsapp btn-sm header-whatsapp">
+        <i class="fab fa-whatsapp"></i> واتساب
+      </a>
+      <button id="hamburger" class="hamburger" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu">
+  <nav>
+    <ul>
+      <li><a href="/">الرئيسية</a></li>
+      <li><a href="/products">المنتجات</a></li>
+      <li><a href="/offers">العروض</a></li>
+      <li><a href="/about">من نحن</a></li>
+      <li><a href="/contact">تواصلي معنا</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ══ Hero ════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-star"></i>
+        تشكيلة 2024 الجديدة متوفرة الآن
+      </div>
+      <h1 class="hero-title">
+        أناقة<br>
+        <span class="highlight">تليق بكِ</span>
+      </h1>
+      <p class="hero-desc">
+        اكتشفي أرقى تشكيلات الحجاب الفاخر — حيث تلتقي الأصالة بالعصرية.
+        نقدم لكِ أجمل تصاميم الحجاب والعباءات المصنوعة من أفخر الأقمشة.
+      </p>
+      <div class="hero-actions">
+        <a href="/products" class="btn btn-gold btn-lg">
+          <i class="fas fa-th-large"></i> تصفحي المنتجات
+        </a>
+        <a href="#" class="btn btn-outline btn-lg header-whatsapp">
+          <i class="fab fa-whatsapp"></i> تواصلي معنا
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">+200</div>
+          <div class="stat-label">منتج فاخر</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">+5K</div>
+          <div class="stat-label">عميلة سعيدة</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">جودة مضمونة</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="/assets/images/hero.jpg" alt="البعقيلي للحجاب" onerror="this.parentElement.style.background='linear-gradient(135deg,#F5EFE6,#EDE3D5)';this.style.display='none'">
+      <div class="hero-image-overlay"></div>
+      <div class="hero-image-badge">
+        <i class="fas fa-shield-alt" style="color:var(--gold)"></i>
+        <span>جودة مضمونة 100%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Categories ══════════════════════════════════════════ -->
+<section class="section-beige">
+  <div class="container">
+    <h2 class="section-title">تصفحي <span>التصنيفات</span></h2>
+    <div class="gold-divider"><i class="fas fa-gem"></i></div>
+    <p class="section-subtitle">اختاري من تشكيلة واسعة من الأقمشة والتصاميم الفاخرة</p>
+    <div class="categories-grid" id="categoriesHome"></div>
+  </div>
+</section>
+
+<!-- ══ Featured Products ═══════════════════════════════════ -->
+<section>
+  <div class="container">
+    <h2 class="section-title">منتجات <span>مميزة</span></h2>
+    <div class="gold-divider"><i class="fas fa-star"></i></div>
+    <p class="section-subtitle">تشكيلة مختارة بعناية من أرقى منتجاتنا</p>
+    <div class="products-grid" id="featuredProducts">
+      <div class="loading"><div class="spinner"></div> جاري التحميل...</div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="/products" class="btn btn-outline btn-lg">عرض جميع المنتجات <i class="fas fa-arrow-left"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Offers ══════════════════════════════════════════════ -->
+<section class="section-beige" id="offersSection">
+  <div class="container">
+    <h2 class="section-title">عروض <span>خاصة</span></h2>
+    <div class="gold-divider"><i class="fas fa-tag"></i></div>
+    <p class="section-subtitle">استفيدي من عروضنا المميزة على أفخر التشكيلات</p>
+    <div class="offers-grid" id="homeOffers"></div>
+  </div>
+</section>
+
+<!-- ══ Why Us ══════════════════════════════════════════════ -->
+<section class="section-dark">
+  <div class="container">
+    <h2 class="section-title">لماذا <span>متجر البعقيلي؟</span></h2>
+    <div class="gold-divider"><i class="fas fa-crown"></i></div>
+    <p class="section-subtitle">نلتزم بتقديم أفضل تجربة تسوق راقية</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-gem"></i></div>
+        <h3 class="feature-title">جودة فاخرة</h3>
+        <p class="feature-desc">نختار أجود أنواع الأقمشة من أرقى المصادر العالمية</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-palette"></i></div>
+        <h3 class="feature-title">تصاميم حصرية</h3>
+        <p class="feature-desc">تصاميم عصرية تجمع بين الأصالة المغربية والرقي الخليجي</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+        <h3 class="feature-title">خدمة فورية</h3>
+        <p class="feature-desc">نرد على استفساراتك فوراً عبر واتساب طوال أوقات العمل</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-heart"></i></div>
+        <h3 class="feature-title">اهتمام شخصي</h3>
+        <p class="feature-desc">نهتم بكل تفصيلة لنضمن رضاكِ التام عن كل منتج</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-award"></i></div>
+        <h3 class="feature-title">ضمان الجودة</h3>
+        <p class="feature-desc">نضمن جودة كل منتج ونلتزم بمعايير الفخامة والأناقة</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+        <h3 class="feature-title">توصيل سريع</h3>
+        <p class="feature-desc">نوصل طلباتك بسرعة وأمان إلى باب منزلك</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Testimonials ════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <h2 class="section-title">آراء <span>عميلاتنا</span></h2>
+    <div class="gold-divider"><i class="fas fa-quote-right"></i></div>
+    <p class="section-subtitle">ماذا قالت عميلاتنا الكريمات عن تجربتهن</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">جودة الحجاب رائعة جداً، القماش ناعم وفاخر. شعرت بالأناقة من اللحظة الأولى. بالتأكيد سأعود للشراء مجدداً.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ن</div>
+          <div>
+            <div class="author-name">نورة العتيبي</div>
+            <div class="author-location">الرياض، السعودية</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">متجر راقي جداً والتعامل ممتاز عبر واتساب. الطرحة وصلت بحالة مثالية وأجمل مما توقعت. شكراً لفريق البعقيلي.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">م</div>
+          <div>
+            <div class="author-name">منى الشمري</div>
+            <div class="author-location">جدة، السعودية</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">اشتريت عباءة وحجاب شيفون، كلاهما بجودة خيالية. الأسعار مناسبة جداً مقارنة بالجودة العالية. أنصح كل من تبحث عن الأناقة.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ر</div>
+          <div>
+            <div class="author-name">ريم الزهراني</div>
+            <div class="author-location">مكة المكرمة، السعودية</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(135deg,var(--gold-dark),var(--brown));padding:60px 0;text-align:center">
+  <div class="container">
+    <h2 style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:12px">هل أنتِ مستعدة للأناقة الحقيقية؟</h2>
+    <p style="color:rgba(255,255,255,.8);margin-bottom:28px;font-size:1rem">تواصلي معنا الآن عبر واتساب واحصلي على مساعدة شخصية في اختيار أجمل الطرح</p>
+    <a href="#" class="btn header-whatsapp" style="background:#fff;color:var(--brown);font-size:1.05rem;padding:14px 36px;border-radius:50px">
+      <i class="fab fa-whatsapp" style="color:#25D366"></i> تواصلي معنا الآن
+    </a>
+  </div>
+</section>
+
+<!-- ══ Footer ══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:16px">
+          <img src="/assets/logo.png" alt="البعقيلي" onerror="this.style.display='none'" style="height:40px">
+          <div class="logo-text">
+            <span class="logo-text-main" style="color:#fff">البعقيلي للحجاب</span>
+            <span class="logo-text-sub" style="color:var(--gold-light)">Luxury Modest Fashion</span>
+          </div>
+        </div>
+        <p class="footer-about">وجهتكِ الأولى للحجاب الفاخر. نقدم أرقى التشكيلات التي تجمع بين الأصالة والعصرية.</p>
+        <div class="footer-social">
+          <a href="#" id="footerInstagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="#" id="footerFacebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" id="footerTiktok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+          <a href="#" id="footerWhatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="/">الرئيسية</a></li>
+          <li><a href="/products">المنتجات</a></li>
+          <li><a href="/offers">العروض</a></li>
+          <li><a href="/about">من نحن</a></li>
+          <li><a href="/contact">اتصلي بنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>التصنيفات</h4>
+        <ul id="footerCategories"></ul>
+      </div>
+      <div class="footer-col">
+        <h4>تواصلي معنا</h4>
+        <ul>
+          <li><a href="#" class="header-whatsapp"><i class="fab fa-whatsapp" style="color:#25D366;margin-left:6px"></i> واتساب</a></li>
+        </ul>
+        <div style="margin-top:20px;padding:16px;background:rgba(201,168,76,.1);border-radius:12px;border:1px solid rgba(201,168,76,.2)">
+          <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:4px">أوقات العمل</div>
+          <div style="font-size:.85rem;color:rgba(255,255,255,.8)" id="footerHours">السبت - الخميس: 9 ص - 10 م</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <span>© 2024 البعقيلي للحجاب. جميع الحقوق محفوظة.</span>
+      <span>صُنع بـ <i class="fas fa-heart" style="color:var(--gold)"></i> للمرأة الأنيقة</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ Floating WhatsApp ═══════════════════════════════════ -->
+<div class="whatsapp-float">
+  <div class="whatsapp-pulse"></div>
+  <a href="#" id="whatsappFloat" class="whatsapp-btn header-whatsapp" target="_blank" rel="noopener" title="تواصلي عبر واتساب">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- Scroll to top -->
+<button id="scrollTop" class="scroll-top" title="العودة للأعلى"><i class="fas fa-chevron-up"></i></button>
+
+<script src="/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const settings = await getSettings();
+
+  // Update social links
+  if (settings.instagram) document.getElementById('footerInstagram').href = settings.instagram;
+  if (settings.facebook) document.getElementById('footerFacebook').href = settings.facebook;
+  if (settings.tiktok) document.getElementById('footerTiktok').href = settings.tiktok;
+  document.getElementById('footerWhatsapp').href = whatsappUrl(null, settings);
+  if (settings.workingHours) document.getElementById('footerHours').textContent = settings.workingHours;
+
+  // Load categories
+  try {
+    const cats = await fetch('/api/categories').then(r => r.json());
+    document.getElementById('categoriesHome').innerHTML = cats.map(c => `
+      <div class="category-card" onclick="location.href='/products?category=${c.slug}'">
+        <div class="category-icon">${c.icon}</div>
+        <div class="category-name">${c.name}</div>
+      </div>`).join('');
+    document.getElementById('footerCategories').innerHTML = cats.slice(0, 5).map(c =>
+      `<li><a href="/products?category=${c.slug}">${c.name}</a></li>`).join('');
+  } catch {}
+
+  // Load featured products
+  try {
+    const products = await fetch('/api/products?featured=true').then(r => r.json());
+    const grid = document.getElementById('featuredProducts');
+    if (products.length) grid.innerHTML = products.slice(0, 6).map(p => renderProductCard(p, settings)).join('');
+    else grid.innerHTML = '<div class="empty-state"><i class="fas fa-box-open"></i><p>لا توجد منتجات مميزة حالياً</p></div>';
+    updateWishlistButtons();
+  } catch {}
+
+  // Load offers
+  try {
+    const offers = await fetch('/api/offers?active=true').then(r => r.json());
+    const container = document.getElementById('homeOffers');
+    if (!offers.length) { document.getElementById('offersSection').style.display = 'none'; return; }
+    container.innerHTML = offers.map(o => `
+      <div class="offer-card">
+        ${o.image ? `<img class="offer-image" src="${o.image}" alt="${o.title}" onerror="this.style.display='none'">` : `<div class="offer-placeholder">🏷️</div>`}
+        <div class="offer-info">
+          <span class="offer-discount">خصم ${o.discount}</span>
+          <h3 class="offer-title">${o.title}</h3>
+          <p class="offer-desc">${o.description}</p>
+          <p class="offer-date"><i class="fas fa-calendar-alt" style="color:var(--gold);margin-left:4px"></i> حتى ${o.endDate}</p>
+        </div>
+      </div>`).join('');
+  } catch {}
+});
+</script>
+</body>
+</html>

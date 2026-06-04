@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصلي معنا — البعقيلي للحجاب</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="/assets/logo.png" alt="البعقيلي" onerror="this.style.display='none'">
+      <div class="logo-text"><span class="logo-text-main">البعقيلي للحجاب</span><span class="logo-text-sub">Luxury Modest Fashion</span></div>
+    </a>
+    <nav><ul>
+      <li><a href="/">الرئيسية</a></li><li><a href="/products">المنتجات</a></li>
+      <li><a href="/offers">العروض</a></li><li><a href="/about">من نحن</a></li>
+      <li><a href="/contact" class="active">تواصلي معنا</a></li>
+    </ul></nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+      <a href="#" class="btn btn-whatsapp btn-sm header-whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
+      <button id="hamburger" class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div id="mobileMenu" class="mobile-menu">
+  <nav><ul>
+    <li><a href="/">الرئيسية</a></li><li><a href="/products">المنتجات</a></li>
+    <li><a href="/offers">العروض</a></li><li><a href="/about">من نحن</a></li>
+    <li><a href="/contact">تواصلي معنا</a></li>
+  </ul></nav>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>تواصلي <span style="color:var(--gold)">معنا</span></h1>
+    <p style="color:var(--text-muted);margin-top:10px">نسعد بخدمتك والإجابة على جميع استفساراتك</p>
+    <div class="breadcrumb" style="margin-top:12px">
+      <a href="/">الرئيسية</a><i class="fas fa-chevron-left" style="font-size:.7rem"></i>تواصلي معنا
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2 style="margin-bottom:24px">معلومات التواصل</h2>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-text">
+            <h4>واتساب</h4>
+            <p>تواصلي معنا مباشرةً للاستفسار والحجز</p>
+            <a href="#" id="contactWhatsapp" class="btn btn-whatsapp btn-sm" style="margin-top:10px" target="_blank">
+              <i class="fab fa-whatsapp"></i> ابدئي المحادثة
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-text">
+            <h4>الموقع</h4>
+            <p id="contactAddress">المملكة العربية السعودية</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-text">
+            <h4>أوقات العمل</h4>
+            <p id="contactHours">السبت - الخميس: 9 صباحاً - 10 مساءً</p>
+          </div>
+        </div>
+
+        <h3 style="margin:24px 0 12px">تابعينا على السوشيال ميديا</h3>
+        <div class="social-links">
+          <a href="#" id="socialInstagram" class="social-link" target="_blank" rel="noopener" title="إنستغرام"><i class="fab fa-instagram"></i></a>
+          <a href="#" id="socialFacebook" class="social-link" target="_blank" rel="noopener" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" id="socialTiktok" class="social-link" target="_blank" rel="noopener" title="تيك توك"><i class="fab fa-tiktok"></i></a>
+          <a href="#" id="socialWhatsapp" class="social-link" target="_blank" rel="noopener" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <!-- Map -->
+        <div class="map-container" style="margin-top:28px">
+          <div id="mapContainer">
+            <div class="map-placeholder">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>خريطة الموقع</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <div class="form-card">
+          <h2 style="margin-bottom:8px">أرسلي لنا رسالة</h2>
+          <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:24px">سنرد عليكِ في أقرب وقت ممكن</p>
+
+          <form id="contactForm">
+            <div class="form-group">
+              <label>الاسم الكريم *</label>
+              <input type="text" id="msgName" placeholder="اسمك الكريم" required>
+            </div>
+            <div class="form-group">
+              <label>البريد الإلكتروني</label>
+              <input type="email" id="msgEmail" placeholder="example@email.com">
+            </div>
+            <div class="form-group">
+              <label>رقم الجوال</label>
+              <input type="tel" id="msgPhone" placeholder="05xxxxxxxx">
+            </div>
+            <div class="form-group">
+              <label>الموضوع</label>
+              <select id="msgSubject" class="filter-select" style="width:100%;padding:12px 16px">
+                <option value="">اختاري الموضوع</option>
+                <option>استفسار عن منتج</option>
+                <option>طلب خاص</option>
+                <option>اقتراح</option>
+                <option>شكوى</option>
+                <option>أخرى</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>الرسالة *</label>
+              <textarea id="msgText" placeholder="اكتبي رسالتك هنا..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center" id="submitBtn">
+              <i class="fas fa-paper-plane"></i> إرسال الرسالة
+            </button>
+          </form>
+
+          <div id="successMsg" style="display:none;margin-top:20px;padding:20px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:var(--radius);text-align:center">
+            <i class="fas fa-check-circle" style="font-size:2rem;color:#25D366;margin-bottom:10px;display:block"></i>
+            <strong>تم إرسال رسالتك بنجاح!</strong>
+            <p style="font-size:.85rem;color:var(--text-muted);margin-top:8px">سنتواصل معكِ قريباً. يمكنكِ أيضاً التواصل عبر واتساب للرد الفوري.</p>
+          </div>
+        </div>
+
+        <!-- WhatsApp CTA -->
+        <div style="margin-top:20px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:var(--radius-lg);padding:24px;text-align:center;color:#fff">
+          <i class="fab fa-whatsapp" style="font-size:2rem;margin-bottom:10px;display:block"></i>
+          <h3 style="margin-bottom:8px">أو تواصلي عبر واتساب مباشرةً</h3>
+          <p style="font-size:.85rem;opacity:.9;margin-bottom:16px">للرد الفوري والمساعدة الشخصية في اختيار منتجاتك</p>
+          <a href="#" id="ctaWhatsapp" class="btn" style="background:#fff;color:#128C7E;font-weight:700" target="_blank">
+            <i class="fab fa-whatsapp"></i> ابدئي المحادثة الآن
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="whatsapp-float">
+  <div class="whatsapp-pulse"></div>
+  <a href="#" id="whatsappFloat" class="whatsapp-btn header-whatsapp" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+<button id="scrollTop" class="scroll-top"><i class="fas fa-chevron-up"></i></button>
+
+<footer class="footer" style="padding:30px 0">
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;justify-content:space-between">
+      <span>© 2024 البعقيلي للحجاب</span>
+      <a href="/" style="color:var(--gold-light)">العودة للرئيسية</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const settings = await getSettings();
+  const wa = whatsappUrl(null, settings);
+
+  document.getElementById('contactWhatsapp').href = wa;
+  document.getElementById('ctaWhatsapp').href = wa;
+  document.getElementById('socialWhatsapp').href = wa;
+  if (settings.instagram) document.getElementById('socialInstagram').href = settings.instagram;
+  if (settings.facebook) document.getElementById('socialFacebook').href = settings.facebook;
+  if (settings.tiktok) document.getElementById('socialTiktok').href = settings.tiktok;
+  if (settings.address) document.getElementById('contactAddress').textContent = settings.address;
+  if (settings.workingHours) document.getElementById('contactHours').textContent = settings.workingHours;
+
+  if (settings.googleMapsEmbed) {
+    document.getElementById('mapContainer').innerHTML = `<iframe src="${settings.googleMapsEmbed}" allowfullscreen loading="lazy"></iframe>`;
+  }
+
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.innerHTML = '<div class="spinner" style="width:18px;height:18px;border-width:2px"></div> جاري الإرسال...';
+
+    try {
+      const r = await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('msgName').value,
+          email: document.getElementById('msgEmail').value,
+          phone: document.getElementById('msgPhone').value,
+          message: `[${document.getElementById('msgSubject').value || 'رسالة'}] ${document.getElementById('msgText').value}`
+        })
+      });
+      if (r.ok) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      } else {
+        const d = await r.json();
+        showToast(d.error || 'حدث خطأ', 'error');
+        btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال الرسالة';
+      }
+    } catch { showToast('حدث خطأ في الاتصال', 'error'); btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال الرسالة'; }
+  });
+});
+</script>
+</body>
+</html>

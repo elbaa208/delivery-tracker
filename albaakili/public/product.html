@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تفاصيل المنتج — البعقيلي للحجاب</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="/assets/logo.png" alt="البعقيلي" onerror="this.style.display='none'">
+      <div class="logo-text"><span class="logo-text-main">البعقيلي للحجاب</span><span class="logo-text-sub">Luxury Modest Fashion</span></div>
+    </a>
+    <nav><ul>
+      <li><a href="/">الرئيسية</a></li>
+      <li><a href="/products" class="active">المنتجات</a></li>
+      <li><a href="/offers">العروض</a></li>
+      <li><a href="/about">من نحن</a></li>
+      <li><a href="/contact">تواصلي معنا</a></li>
+    </ul></nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+      <a href="#" class="btn btn-whatsapp btn-sm header-whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
+      <button id="hamburger" class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div id="mobileMenu" class="mobile-menu">
+  <nav><ul>
+    <li><a href="/">الرئيسية</a></li><li><a href="/products">المنتجات</a></li>
+    <li><a href="/offers">العروض</a></li><li><a href="/about">من نحن</a></li>
+    <li><a href="/contact">تواصلي معنا</a></li>
+  </ul></nav>
+</div>
+
+<div class="page-hero" style="padding:90px 0 40px">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">الرئيسية</a>
+      <i class="fas fa-chevron-left" style="font-size:.7rem"></i>
+      <a href="/products">المنتجات</a>
+      <i class="fas fa-chevron-left" style="font-size:.7rem"></i>
+      <span id="productNameBreadcrumb">تفاصيل المنتج</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="product-detail-grid">
+      <!-- Gallery -->
+      <div class="product-gallery">
+        <div class="gallery-main">
+          <img id="galleryMain" src="/assets/images/product-placeholder.jpg" alt="صورة المنتج" style="transition:opacity .3s">
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+      </div>
+
+      <!-- Info -->
+      <div class="product-detail-info">
+        <h1 class="product-detail-name" id="productName">جاري التحميل...</h1>
+
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+          <span id="productAvail" class="badge badge-green">متوفر</span>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="product-detail-price" id="productPrice">—</div>
+
+        <!-- Colors -->
+        <div class="detail-options" id="colorsSection">
+          <label><i class="fas fa-palette" style="color:var(--gold);margin-left:6px"></i> الألوان المتاحة</label>
+          <div class="options-list" id="colorsContainer"></div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="detail-options" id="sizesSection">
+          <label><i class="fas fa-ruler" style="color:var(--gold);margin-left:6px"></i> المقاسات</label>
+          <div class="options-list" id="sizesContainer"></div>
+        </div>
+
+        <!-- Description -->
+        <div style="margin:24px 0">
+          <h3 style="font-size:1rem;margin-bottom:10px;color:var(--text-muted)">وصف المنتج</h3>
+          <p id="productDesc" style="font-size:.9rem;line-height:1.9;color:var(--text-muted)"></p>
+        </div>
+
+        <!-- Specs -->
+        <div class="detail-specs">
+          <div class="spec-row"><span class="spec-label">الخامة</span><span class="spec-value" id="productMaterial">—</span></div>
+          <div class="spec-row"><span class="spec-label">التصنيف</span><span class="spec-value" id="productCategory">—</span></div>
+        </div>
+
+        <!-- Actions -->
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:28px">
+          <a href="#" class="btn btn-whatsapp btn-lg product-whatsapp-btn" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> استفسري عبر واتساب
+          </a>
+          <button id="wishlistBtn" class="btn btn-outline">
+            <i class="far fa-heart"></i> أضف للمفضلة
+          </button>
+        </div>
+
+        <!-- Trust badges -->
+        <div style="display:flex;gap:16px;margin-top:24px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text-muted)">
+            <i class="fas fa-shield-alt" style="color:var(--gold)"></i> جودة مضمونة
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text-muted)">
+            <i class="fas fa-star" style="color:var(--gold)"></i> منتج أصلي 100%
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text-muted)">
+            <i class="fab fa-whatsapp" style="color:#25D366"></i> رد فوري
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Similar Products -->
+    <div id="similarSection" style="margin-top:80px">
+      <h2 class="section-title">منتجات <span>مشابهة</span></h2>
+      <div class="gold-divider"><i class="fas fa-heart"></i></div>
+      <div class="products-grid" id="similarProducts"></div>
+    </div>
+  </div>
+</section>
+
+<div class="whatsapp-float">
+  <div class="whatsapp-pulse"></div>
+  <a href="#" id="whatsappFloat" class="whatsapp-btn header-whatsapp" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+<button id="scrollTop" class="scroll-top"><i class="fas fa-chevron-up"></i></button>
+
+<footer class="footer" style="padding:30px 0">
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;justify-content:space-between">
+      <span>© 2024 البعقيلي للحجاب</span>
+      <a href="/products" style="color:var(--gold-light)">العودة للمنتجات</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/product.js"></script>
+</body>
+</html>
