@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "عرض الصيف الفاخر",
+    "description": "خصم 20% على جميع منتجات الشيفون والحرير",
+    "discount": "20%",
+    "image": "/assets/images/offer-placeholder.jpg",
+    "startDate": "2024-06-01",
+    "endDate": "2024-08-31",
+    "active": true
+  },
+  {
+    "id": "2",
+    "title": "مجموعة رمضان الخاصة",
+    "description": "تشكيلة حصرية للمناسبات الرمضانية بأسعار مميزة",
+    "discount": "15%",
+    "image": "/assets/images/offer-placeholder.jpg",
+    "startDate": "2024-03-01",
+    "endDate": "2024-04-30",
+    "active": false
+  }
+]

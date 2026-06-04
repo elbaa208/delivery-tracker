@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم — البعقيلي للحجاب</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ══ Login Page ══════════════════════════════════════════ -->
+<div id="loginPage" class="login-page" style="display:none">
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="/assets/logo.png" alt="البعقيلي" onerror="this.style.display='none'" style="height:60px;margin:0 auto">
+    </div>
+    <h1 class="login-title">لوحة التحكم</h1>
+    <p class="login-subtitle">سجلي دخولك للوصول إلى لوحة الإدارة</p>
+
+    <form id="loginForm">
+      <div class="form-group" style="text-align:right">
+        <label>البريد الإلكتروني</label>
+        <input type="email" id="loginEmail" placeholder="admin@albaakili.com" required>
+      </div>
+      <div class="form-group" style="text-align:right">
+        <label>كلمة المرور</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" required>
+      </div>
+      <button type="submit" id="loginBtn" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px">
+        <i class="fas fa-sign-in-alt"></i> دخول
+      </button>
+    </form>
+    <p style="margin-top:16px;font-size:.78rem;color:var(--text-muted)">
+      البريد الافتراضي: admin@albaakili.com | كلمة المرور: admin123
+    </p>
+  </div>
+</div>
+
+<!-- ══ Dashboard ═══════════════════════════════════════════ -->
+<div id="adminDashboard" class="admin-layout" style="display:none">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="sidebar-logo">
+      <img src="/assets/logo.png" alt="البعقيلي" onerror="this.style.display='none'" style="height:36px;margin:0 auto 10px">
+      <div class="logo-text">
+        <span class="logo-text-main">البعقيلي للحجاب</span>
+        <span class="logo-text-sub" style="color:var(--gold-light)">لوحة التحكم</span>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">الرئيسية</div>
+      <a href="#" class="sidebar-link active" data-section="dashboard"><i class="fas fa-chart-pie"></i> لوحة المعلومات</a>
+
+      <div class="nav-section-title">إدارة المحتوى</div>
+      <a href="#" class="sidebar-link" data-section="products"><i class="fas fa-tshirt"></i> المنتجات</a>
+      <a href="#" class="sidebar-link" data-section="categories"><i class="fas fa-tags"></i> التصنيفات</a>
+      <a href="#" class="sidebar-link" data-section="offers"><i class="fas fa-percent"></i> العروض</a>
+
+      <div class="nav-section-title">التواصل</div>
+      <a href="#" class="sidebar-link" data-section="messages">
+        <i class="fas fa-envelope"></i> الرسائل
+        <span class="sidebar-badge" id="sidebarUnread" style="display:none">0</span>
+      </a>
+
+      <div class="nav-section-title">الإعدادات</div>
+      <a href="#" class="sidebar-link" data-section="settings"><i class="fas fa-cog"></i> إعدادات الموقع</a>
+
+      <div style="margin-top:24px;padding:0 12px">
+        <a href="/" target="_blank" class="sidebar-link" style="border:1px solid rgba(201,168,76,.2)"><i class="fas fa-external-link-alt"></i> عرض الموقع</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <div class="admin-main">
+    <!-- Topbar -->
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button id="mobileMenuToggle" class="icon-btn" style="display:none"><i class="fas fa-bars"></i></button>
+        <h2 id="topbarTitle" class="topbar-title">لوحة المعلومات</h2>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+        <button id="logoutBtn" class="btn btn-outline btn-sm"><i class="fas fa-sign-out-alt"></i> خروج</button>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- ══ Dashboard Section ══ -->
+      <div class="admin-section" id="section-dashboard">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-icon" style="background:rgba(201,168,76,.1);color:var(--gold)"><i class="fas fa-tshirt"></i></div>
+            <div class="stat-card-info"><h3 id="statProducts">0</h3><p>منتج</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon" style="background:rgba(66,153,225,.1);color:#4299E1"><i class="fas fa-tags"></i></div>
+            <div class="stat-card-info"><h3 id="statCategories">0</h3><p>تصنيف</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon" style="background:rgba(229,62,62,.1);color:#E53E3E"><i class="fas fa-envelope"></i></div>
+            <div class="stat-card-info"><h3 id="statMessages">0</h3><p>رسالة (<span id="statUnread">0</span> جديدة)</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon" style="background:rgba(37,211,102,.1);color:#25D366"><i class="fas fa-percent"></i></div>
+            <div class="stat-card-info"><h3 id="statOffers">0</h3><p>عرض</p></div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3><i class="fas fa-envelope" style="color:var(--gold);margin-left:8px"></i> آخر الرسائل</h3>
+            <button class="btn btn-outline btn-sm" onclick="showSection('messages')">عرض الكل</button>
+          </div>
+          <div class="admin-card-body" style="padding:0">
+            <table class="data-table">
+              <thead><tr><th>الاسم</th><th>الرسالة</th><th>التاريخ</th><th>الحالة</th></tr></thead>
+              <tbody id="recentMessages"><tr><td colspan="4" style="text-align:center;padding:30px;color:var(--text-muted)">جاري التحميل...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ Products Section ══ -->
+      <div class="admin-section" id="section-products" style="display:none">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3><i class="fas fa-tshirt" style="color:var(--gold);margin-left:8px"></i> المنتجات</h3>
+            <button class="btn btn-gold btn-sm" onclick="openAddProduct()"><i class="fas fa-plus"></i> منتج جديد</button>
+          </div>
+          <div class="admin-card-body" style="padding:0;overflow-x:auto">
+            <table class="data-table">
+              <thead><tr><th>الصورة</th><th>المنتج</th><th>السعر</th><th>الحالة</th><th>النوع</th><th>الإجراءات</th></tr></thead>
+              <tbody id="productsTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ Categories Section ══ -->
+      <div class="admin-section" id="section-categories" style="display:none">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3><i class="fas fa-tags" style="color:var(--gold);margin-left:8px"></i> التصنيفات</h3>
+            <button class="btn btn-gold btn-sm" onclick="openAddCategory()"><i class="fas fa-plus"></i> تصنيف جديد</button>
+          </div>
+          <div class="admin-card-body" style="padding:0">
+            <table class="data-table">
+              <thead><tr><th>الأيقونة</th><th>الاسم</th><th>المعرف</th><th>الإجراءات</th></tr></thead>
+              <tbody id="categoriesTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ Offers Section ══ -->
+      <div class="admin-section" id="section-offers" style="display:none">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3><i class="fas fa-percent" style="color:var(--gold);margin-left:8px"></i> العروض</h3>
+            <button class="btn btn-gold btn-sm" onclick="openAddOffer()"><i class="fas fa-plus"></i> عرض جديد</button>
+          </div>
+          <div class="admin-card-body" style="padding:0">
+            <table class="data-table">
+              <thead><tr><th>العنوان</th><th>الخصم</th><th>الفترة</th><th>الحالة</th><th>الإجراءات</th></tr></thead>
+              <tbody id="offersTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ Messages Section ══ -->
+      <div class="admin-section" id="section-messages" style="display:none">
+        <div id="messagesContainer">
+          <div class="loading"><div class="spinner"></div> جاري تحميل الرسائل...</div>
+        </div>
+      </div>
+
+      <!-- ══ Settings Section ══ -->
+      <div class="admin-section" id="section-settings" style="display:none">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3><i class="fas fa-store" style="color:var(--gold);margin-left:8px"></i> معلومات المتجر</h3>
+          </div>
+          <div class="admin-card-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+              <div class="form-group"><label>اسم المتجر (عربي)</label><input type="text" id="setting_storeName"></div>
+              <div class="form-group"><label>اسم المتجر (إنجليزي)</label><input type="text" id="setting_storeNameEn"></div>
+              <div class="form-group"><label>رقم واتساب (بدون +)</label><input type="text" id="setting_whatsapp" placeholder="966500000000"></div>
+              <div class="form-group"><label>العنوان</label><input type="text" id="setting_address"></div>
+              <div class="form-group"><label>أوقات العمل</label><input type="text" id="setting_workingHours"></div>
+              <div class="form-group"><label>رابط إنستغرام</label><input type="url" id="setting_instagram"></div>
+              <div class="form-group"><label>رابط فيسبوك</label><input type="url" id="setting_facebook"></div>
+              <div class="form-group"><label>رابط تيك توك</label><input type="url" id="setting_tiktok"></div>
+            </div>
+            <div class="form-group"><label>عنوان Hero الرئيسي</label><input type="text" id="setting_heroTitle"></div>
+            <div class="form-group"><label>وصف Hero</label><input type="text" id="setting_heroSubtitle"></div>
+            <div class="form-group"><label>نص صفحة "من نحن"</label><textarea id="setting_aboutText" rows="4"></textarea></div>
+            <div class="form-group"><label>Google Maps Embed URL</label><input type="url" id="setting_googleMapsEmbed" placeholder="https://www.google.com/maps/embed?..."></div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header"><h3><i class="fas fa-lock" style="color:var(--gold);margin-left:8px"></i> بيانات الدخول</h3></div>
+          <div class="admin-card-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+              <div class="form-group"><label>البريد الإلكتروني للأدمن</label><input type="email" id="setting_adminEmail"></div>
+              <div class="form-group"><label>كلمة مرور جديدة (اتركي فارغاً للإبقاء)</label><input type="password" id="setting_newPassword" placeholder="••••••••"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:left">
+          <button class="btn btn-gold" onclick="saveSettings()"><i class="fas fa-save"></i> حفظ الإعدادات</button>
+        </div>
+      </div>
+
+    </div><!-- /admin-content -->
+  </div><!-- /admin-main -->
+</div><!-- /adminDashboard -->
+
+<!-- ══ Product Modal ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="productModalTitle">إضافة منتج جديد</h3>
+      <button class="modal-close" onclick="closeModal('productModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="productForm">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="form-group"><label>اسم المنتج *</label><input type="text" id="productName" placeholder="مثال: حجاب شيفون فاخر"></div>
+          <div class="form-group"><label>السعر (ر.س) *</label><input type="number" id="productPrice" min="0" step="0.01" placeholder="0"></div>
+          <div class="form-group"><label>التصنيف</label><select id="productCategory"></select></div>
+          <div class="form-group"><label>الخامة</label><input type="text" id="productMaterial" placeholder="مثال: شيفون"></div>
+        </div>
+        <div class="form-group"><label>وصف مختصر</label><input type="text" id="productShortDesc" placeholder="جملة قصيرة لوصف المنتج"></div>
+        <div class="form-group"><label>الوصف الكامل</label><textarea id="productDesc" rows="4" placeholder="وصف تفصيلي للمنتج..."></textarea></div>
+
+        <div class="form-group">
+          <label>الألوان المتاحة <small style="color:var(--text-muted)">(اكتبي لوناً واضغطي Enter)</small></label>
+          <div class="tags-input" id="colorsTagsContainer">
+            <input type="text" id="colorTagInput" placeholder="مثال: أسود...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>المقاسات <small style="color:var(--text-muted)">(اكتبي مقاساً واضغطي Enter)</small></label>
+          <div class="tags-input" id="sizesTagsContainer">
+            <input type="text" id="sizeTagInput" placeholder="مثال: S, M, L...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>صور المنتج</label>
+          <div class="image-upload-zone" id="imageUploadZone">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>اضغطي هنا أو اسحبي الصور للرفع</p>
+            <p style="font-size:.75rem;margin-top:4px">JPG, PNG, WebP — الحجم الأقصى 5MB</p>
+          </div>
+          <div class="image-preview-grid" id="productImagePreview"></div>
+        </div>
+
+        <div style="display:flex;gap:24px">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <input type="checkbox" id="productFeatured" style="width:auto">
+            <span>منتج مميز ⭐</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <input type="checkbox" id="productAvailable" checked style="width:auto">
+            <span>متوفر للبيع</span>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('productModal')">إلغاء</button>
+      <button class="btn btn-gold" onclick="saveProduct()"><i class="fas fa-save"></i> حفظ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Category Modal ══════════════════════════════════════ -->
+<div class="modal-overlay" id="categoryModal">
+  <div class="modal" style="max-width:440px">
+    <div class="modal-header">
+      <h3 id="catModalTitle">إضافة تصنيف جديد</h3>
+      <button class="modal-close" onclick="closeModal('categoryModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="categoryForm">
+        <div class="form-group"><label>اسم التصنيف *</label><input type="text" id="catName" placeholder="مثال: حجاب شيفون"></div>
+        <div class="form-group"><label>المعرف (slug)</label><input type="text" id="catSlug" placeholder="مثال: chiffon"></div>
+        <div class="form-group"><label>الأيقونة (emoji)</label><input type="text" id="catIcon" placeholder="مثال: ✨" maxlength="4"></div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('categoryModal')">إلغاء</button>
+      <button class="btn btn-gold" onclick="saveCategory()"><i class="fas fa-save"></i> حفظ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Offer Modal ═════════════════════════════════════════ -->
+<div class="modal-overlay" id="offerModal">
+  <div class="modal" style="max-width:520px">
+    <div class="modal-header">
+      <h3 id="offerModalTitle">إضافة عرض جديد</h3>
+      <button class="modal-close" onclick="closeModal('offerModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="offerForm">
+        <div class="form-group"><label>عنوان العرض *</label><input type="text" id="offerTitle" placeholder="مثال: عرض الصيف الفاخر"></div>
+        <div class="form-group"><label>وصف العرض</label><textarea id="offerDesc" rows="3"></textarea></div>
+        <div class="form-group"><label>نسبة الخصم</label><input type="text" id="offerDiscount" placeholder="مثال: 20%"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="form-group"><label>تاريخ البداية</label><input type="date" id="offerStart"></div>
+          <div class="form-group"><label>تاريخ النهاية</label><input type="date" id="offerEnd"></div>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+          <input type="checkbox" id="offerActive" checked style="width:auto"> <span>العرض نشط</span>
+        </label>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('offerModal')">إلغاء</button>
+      <button class="btn btn-gold" onclick="saveOffer()"><i class="fas fa-save"></i> حفظ</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/admin.js"></script>
+<script>
+// Show mobile menu toggle on small screens
+window.addEventListener('resize', () => {
+  const toggle = document.getElementById('mobileMenuToggle');
+  if (toggle) toggle.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
+});
+window.dispatchEvent(new Event('resize'));
+
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.classList.remove('open');
+  });
+});
+
+// Auto-generate slug from name
+document.getElementById('catName')?.addEventListener('input', (e) => {
+  const slugEl = document.getElementById('catSlug');
+  if (slugEl && !slugEl.value) {
+    slugEl.value = e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>العروض — البعقيلي للحجاب</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="/assets/logo.png" alt="البعقيلي" onerror="this.style.display='none'">
+      <div class="logo-text"><span class="logo-text-main">البعقيلي للحجاب</span><span class="logo-text-sub">Luxury Modest Fashion</span></div>
+    </a>
+    <nav><ul>
+      <li><a href="/">الرئيسية</a></li><li><a href="/products">المنتجات</a></li>
+      <li><a href="/offers" class="active">العروض</a></li><li><a href="/about">من نحن</a></li>
+      <li><a href="/contact">تواصلي معنا</a></li>
+    </ul></nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+      <a href="#" class="btn btn-whatsapp btn-sm header-whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
+      <button id="hamburger" class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div id="mobileMenu" class="mobile-menu">
+  <nav><ul>
+    <li><a href="/">الرئيسية</a></li><li><a href="/products">المنتجات</a></li>
+    <li><a href="/offers">العروض</a></li><li><a href="/about">من نحن</a></li>
+    <li><a href="/contact">تواصلي معنا</a></li>
+  </ul></nav>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>العروض <span style="color:var(--gold)">الخاصة</span></h1>
+    <p style="color:var(--text-muted);margin-top:10px">استفيدي من أفضل العروض على تشكيلاتنا الفاخرة</p>
+    <div class="breadcrumb" style="margin-top:12px"><a href="/">الرئيسية</a><i class="fas fa-chevron-left" style="font-size:.7rem"></i>العروض</div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="offers-grid" id="offersGrid">
+      <div class="loading"><div class="spinner"></div> جاري التحميل...</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:linear-gradient(135deg,var(--gold-dark),var(--brown));padding:60px 0;text-align:center">
+  <div class="container">
+    <h2 style="color:#fff;margin-bottom:12px">لا تفوتي أي عرض!</h2>
+    <p style="color:rgba(255,255,255,.85);margin-bottom:24px">تابعينا على واتساب لتصلك أحدث العروض أولاً بأول</p>
+    <a href="#" class="btn header-whatsapp" style="background:#fff;color:var(--brown)" target="_blank">
+      <i class="fab fa-whatsapp" style="color:#25D366"></i> تابعينا على واتساب
+    </a>
+  </div>
+</section>
+
+<div class="whatsapp-float">
+  <div class="whatsapp-pulse"></div>
+  <a href="#" id="whatsappFloat" class="whatsapp-btn header-whatsapp" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+<button id="scrollTop" class="scroll-top"><i class="fas fa-chevron-up"></i></button>
+
+<footer class="footer" style="padding:30px 0">
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;justify-content:space-between">
+      <span>© 2024 البعقيلي للحجاب</span>
+      <a href="/products" style="color:var(--gold-light)">تصفحي المنتجات</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const settings = await getSettings();
+  try {
+    const offers = await fetch('/api/offers').then(r => r.json());
+    const grid = document.getElementById('offersGrid');
+    if (!offers.length) {
+      grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><i class="fas fa-tag"></i><p>لا توجد عروض متاحة حالياً</p></div>';
+      return;
+    }
+    const now = new Date();
+    grid.innerHTML = offers.map(o => {
+      const active = o.active && new Date(o.endDate) >= now;
+      return `
+      <div class="offer-card" style="${!active ? 'opacity:.6' : ''}">
+        ${o.image ? `<img class="offer-image" src="${o.image}" alt="${o.title}" onerror="this.style.display='none'">` : `<div class="offer-placeholder">🏷️</div>`}
+        <div class="offer-info">
+          <span class="offer-discount">خصم ${o.discount}</span>
+          ${!active ? '<span class="badge badge-red" style="margin-right:8px">منتهي</span>' : '<span class="badge badge-green" style="margin-right:8px">نشط</span>'}
+          <h3 class="offer-title">${o.title}</h3>
+          <p class="offer-desc">${o.description}</p>
+          <p class="offer-date"><i class="fas fa-calendar-alt" style="color:var(--gold);margin-left:4px"></i> ${o.startDate} — ${o.endDate}</p>
+          ${active ? `<a href="${whatsappUrl('عرض: ' + o.title, settings)}" target="_blank" class="btn btn-whatsapp btn-sm" style="margin-top:14px"><i class="fab fa-whatsapp"></i> استفسري عن العرض</a>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+  } catch { document.getElementById('offersGrid').innerHTML = '<div class="empty-state" style="grid-column:1/-1"><i class="fas fa-exclamation-triangle"></i><p>حدث خطأ في التحميل</p></div>'; }
+});
+</script>
+</body>
+</html>
